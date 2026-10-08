@@ -114,18 +114,18 @@ decisions came from rules, from the AI and from the user.
 
 ```mermaid
 flowchart TD
-    UI["React client: upload, mapping, review, export"]
-    API["Express API: request id, input checks, limits"]
-    PIPE["Pipeline: rules first, then model, then checks"]
-    RULES["Deterministic rules: headers, email, title keywords"]
-    CACHE[("Title cache, in memory")]
-    LLM{{"LlmClient interface"}}
-    LIVE["Anthropic client: timeout and retries"]
-    MOCK["Mock client: saved answers, no model"]
-    VAL["Validation: JSON and closed value lists"]
-    LOG["Structured logs and metrics"]
+    UI["React client"]
+    API["Express API"]
+    PIPE["Pipeline"]
+    RULES["Rules"]
+    CACHE[("Title cache")]
+    LLM{{"LlmClient"}}
+    LIVE["Anthropic API"]
+    MOCK["Mock client"]
+    VAL["Validation"]
+    LOG["Logs, metrics"]
 
-    UI -- "POST /api/analyze and /api/normalize" --> API
+    UI -- "requests" --> API
     API --> PIPE
     PIPE --> RULES
     PIPE --> CACHE
@@ -135,7 +135,7 @@ flowchart TD
     LLM --> VAL
     VAL --> PIPE
     PIPE --> LOG
-    PIPE -- "suggestions with confidence and reason" --> UI
+    PIPE -- "suggestions" --> UI
 ```
 
 
