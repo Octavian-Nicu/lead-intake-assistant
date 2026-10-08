@@ -1,0 +1,138 @@
+{
+  "map_columns": {
+    "first": {
+      "target": "first_name",
+      "confidence": 0.95,
+      "reason": "Header 'First' with single given names matches first name pattern."
+    },
+    "org": {
+      "target": "company",
+      "confidence": 0.9,
+      "reason": "Header 'Org' contains organization names like ABC Demo and Fabrikam Demo."
+    },
+    "position": {
+      "target": "job_title",
+      "confidence": 0.95,
+      "reason": "Header 'Position' with titles like CTO and Marketing Manager clearly indicates job titles."
+    },
+    "location": {
+      "target": "country",
+      "confidence": 0.9,
+      "reason": "Header 'Location' with country names Romania, Denmark, and Singapore maps to country field."
+    },
+    "cell": {
+      "target": "phone",
+      "confidence": 0.95,
+      "reason": "Header 'Cell' contains formatted phone numbers with country codes."
+    },
+    "booth notes": {
+      "target": "ignore",
+      "confidence": 0.95,
+      "reason": "Booth notes are event-specific metadata not part of standard B2B lead schema."
+    },
+    "opt in": {
+      "target": "ignore",
+      "confidence": 0.9,
+      "reason": "Opt-in status is a consent flag, not a standard lead attribute field."
+    }
+  },
+  "normalize_titles": {
+    "head of growth": {
+      "confidence": 0.85,
+      "reason": "Head of Growth typically leads a growth/marketing function at director level.",
+      "seniority": "Director",
+      "department": "Marketing"
+    },
+    "account executive": {
+      "confidence": 0.95,
+      "reason": "Account Executive is a standard sales role at individual contributor level.",
+      "seniority": "Individual Contributor",
+      "department": "Sales"
+    },
+    "devops ninja": {
+      "confidence": 0.9,
+      "reason": "DevOps Ninja is a playful title for a DevOps engineer, an IT individual contributor role.",
+      "seniority": "Individual Contributor",
+      "department": "IT"
+    },
+    "founder": {
+      "confidence": 0.95,
+      "reason": "Founder is a C-level executive position.",
+      "seniority": "C-Level",
+      "department": "Executive"
+    },
+    "consultant": {
+      "confidence": 0.3,
+      "reason": "Consultant is too generic and could span multiple departments and seniority levels.",
+      "seniority": "Unknown",
+      "department": "Unknown"
+    },
+    "directeur marketing": {
+      "confidence": 0.95,
+      "reason": "Directeur Marketing is French for Marketing Director, a director-level role.",
+      "seniority": "Director",
+      "department": "Marketing"
+    },
+    "geschäftsführer": {
+      "confidence": 0.95,
+      "reason": "Geschäftsführer is German for Managing Director/CEO, a C-level position.",
+      "seniority": "C-Level",
+      "department": "Executive"
+    },
+    "student": {
+      "confidence": 0.95,
+      "reason": "Student is not a job title.",
+      "seniority": "Unknown",
+      "department": "Unknown"
+    },
+    "asdf": {
+      "confidence": 0.95,
+      "reason": "This is not a valid job title.",
+      "seniority": "Unknown",
+      "department": "Unknown"
+    },
+    "chief happiness officer": {
+      "confidence": 0.75,
+      "reason": "Chief Happiness Officer is a playful HR title, likely a manager-level role focused on employee engagement.",
+      "seniority": "Manager",
+      "department": "HR"
+    },
+    "procurement lead": {
+      "confidence": 0.8,
+      "reason": "Procurement Lead typically manages procurement operations at a manager level.",
+      "seniority": "Manager",
+      "department": "Operations"
+    },
+    "wizard of light bulb moments": {
+      "confidence": 0.2,
+      "reason": "This appears to be a creative/humorous title without clear job function.",
+      "seniority": "Unknown",
+      "department": "Unknown"
+    },
+    "product manager": {
+      "confidence": 0.85,
+      "reason": "Product Manager is typically an individual contributor role in product/engineering organizations.",
+      "seniority": "Individual Contributor",
+      "department": "Other"
+    },
+    "customer success manager": {
+      "confidence": 0.9,
+      "reason": "Customer Success Manager is a manager-level role in the sales/customer success function.",
+      "seniority": "Manager",
+      "department": "Sales"
+    },
+    "hr business partner": {
+      "confidence": 0.9,
+      "reason": "HR Business Partner is a manager-level HR role supporting business operations.",
+      "seniority": "Manager",
+      "department": "HR"
+    },
+    "data analyst": {
+      "confidence": 0.9,
+      "reason": "Data Analyst is an individual contributor role in IT/analytics.",
+      "seniority": "Individual Contributor",
+      "department": "IT"
+    }
+  }
+}
+
