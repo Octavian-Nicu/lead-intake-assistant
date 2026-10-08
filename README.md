@@ -114,27 +114,30 @@ decisions came from rules, from the AI and from the user.
 
 ```mermaid
 flowchart TD
-    UI\\\[React client<br/>upload, mapping, review, export]
-    API\\\[Express API<br/>request id, input validation, limits]
-    PIPE\\\[Pipeline<br/>rules first, then model, then checks]
-    RULES\\\[Deterministic rules<br/>header names, email check, title keywords]
-    CACHE\\\[(Title cache<br/>in memory)]
-    LLM{{LlmClient interface}}
-    LIVE\\\[Anthropic client<br/>timeout and retries]
-    MOCK\\\[Mock client<br/>saved answers, no model]
-    VAL\\\[Validation<br/>JSON and closed value lists]
-    LOG\\\[Structured logs and metrics]
+    UI["React client: upload, mapping, review, export"]
+    API["Express API: request id, input checks, limits"]
+    PIPE["Pipeline: rules first, then model, then checks"]
+    RULES["Deterministic rules: headers, email, title keywords"]
+    CACHE[("Title cache, in memory")]
+    LLM{{"LlmClient interface"}}
+    LIVE["Anthropic client: timeout and retries"]
+    MOCK["Mock client: saved answers, no model"]
+    VAL["Validation: JSON and closed value lists"]
+    LOG["Structured logs and metrics"]
 
-    UI -->|POST /api/analyze, /api/normalize| API --> PIPE
+    UI -- "POST /api/analyze and /api/normalize" --> API
+    API --> PIPE
     PIPE --> RULES
     PIPE --> CACHE
     PIPE --> LLM
     LLM --> LIVE
     LLM --> MOCK
-    LLM --> VAL --> PIPE
+    LLM --> VAL
+    VAL --> PIPE
     PIPE --> LOG
-    PIPE -->|suggestions with confidence and reason| UI
+    PIPE -- "suggestions with confidence and reason" --> UI
 ```
+
 
 |Path|Purpose|
 |-|-|
